@@ -40,14 +40,15 @@ class App extends Component {
 
   clearText() {
     // clear all the user inputted text and reset the writing time target
-    this.setState({ text: "", startedTyping: false });
-    clearTimeout(this.timeoutId);
+    if (this.state.completed === false) {
+      this.setState({ text: "", startedTyping: false });
+      clearTimeout(this.timeoutId);
+    }
   }
 
   startWritingCountdown() {
     // start the writing countdown to prevent text from getting cleared
     this.timeoutId = setTimeout(() => {
-      this.clearText = () => {};
       this.setState({ completed: true });
     }, this.TARGET_TYPING_DURATION);
   }
