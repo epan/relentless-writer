@@ -63,6 +63,7 @@ class App extends Component {
             <p>Don't stop writing for more than 5 seconds</p>
           )}
           <textarea
+            data-testid="editor"
             name="editor"
             value={this.state.text}
             onChange={this.handleInput}
